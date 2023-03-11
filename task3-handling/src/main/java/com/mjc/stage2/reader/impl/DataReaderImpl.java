@@ -20,7 +20,8 @@ public class DataReaderImpl implements DataReader {
     public String readFile(String path) throws HandlingException {
         FileValidatorImpl fileValidate = new FileValidatorImpl();
         if (!fileValidate.validateFilePath(path)) {
-            throw new HandlingException("File is not exist or is empty or incorrect path");
+            throw new HandlingException("File is not exist or is empty or" +
+                    " incorrect path");
         }
         List<String> lines;
         Path pathFile = Paths.get(path);
@@ -31,8 +32,7 @@ public class DataReaderImpl implements DataReader {
             throw new HandlingException("Reading file is fail ", e);
         }
         StringBuilder stringBuilder = new StringBuilder();
-        for (String s : lines
-                ) {
+        for (String s : lines) {
             stringBuilder.append(s).append("\n");
         }
         return stringBuilder.toString();

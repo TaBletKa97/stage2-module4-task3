@@ -1,6 +1,6 @@
 package com.mjc.stage2.exception;
 
-public class HandlingException extends Exception {
+public class HandlingException extends RuntimeException {
     public HandlingException() {
     }
 
