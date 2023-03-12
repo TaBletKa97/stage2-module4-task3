@@ -2,6 +2,7 @@ package com.mjc.stage2.parser;
 
 import com.mjc.stage2.entity.AbstractTextComponent;
 import com.mjc.stage2.entity.SymbolLeaf;
+import com.mjc.stage2.entity.TextComponent;
 import com.mjc.stage2.entity.TextComponentType;
 
 public class LexemeParser extends AbstractTextParser {
@@ -10,8 +11,10 @@ public class LexemeParser extends AbstractTextParser {
     @Override
     public void parse(AbstractTextComponent abstractTextComponent, String string) {
         char[] arr = string.toCharArray();
+        AbstractTextComponent word = new TextComponent(TextComponentType.WORD);
         for (char ch : arr) {
-            abstractTextComponent.add(new SymbolLeaf(TextComponentType.WORD, ch));
+            word.add(new SymbolLeaf(TextComponentType.WORD, ch));
         }
+        abstractTextComponent.add(word);
     }
 }
